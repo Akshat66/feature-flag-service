@@ -1,5 +1,6 @@
- const express = require('express');
+const express = require('express');
 const dotenv = require('dotenv');
+const applicationRoutes = require('./routes/applicationRoutes');
 
 dotenv.config();
 
@@ -13,6 +14,8 @@ app.get('/health', (req, res) => {
     message: 'Feature Flag Service is running'
   });
 });
+
+app.use('/applications', applicationRoutes);
 
 const PORT = process.env.PORT || 3000;
 
